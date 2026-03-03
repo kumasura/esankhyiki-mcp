@@ -50,7 +50,17 @@ def _build_adk_runner():
         tools=[know_about_mospi_api, get_indicators, get_metadata, get_data],
     )
 
-    return Runner(agent=agent, session_service=InMemorySessionService())
+    app_name = os.getenv("ADK_APP_NAME", "mospi_a2a_server")
+    session_service = InMemorySessionService()
+
+    # google-adk Runner constructor has changed across versions:
+    # - older: Runner(agent=..., session_service=...)
+    # - newer: Runner(app_name=..., agent=..., session_service=...)
+    # Prefer the newer signature, then gracefully fall back.
+    try:
+        return Runner(app_name=app_name, agent=agent, session_service=session_service)
+    except (TypeError, ValueError):
+        return Runner(agent=agent, session_service=session_service)
 
 
 app = FastAPI(title="MoSPI A2A Server (Google ADK)", version="0.1.0")
