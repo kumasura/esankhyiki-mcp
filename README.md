@@ -15,7 +15,6 @@ Agent-ready MoSPI intelligence stack built on top of an MCP (Model Context Proto
 - [Datasets](#datasets)
 - [MCP Tools](#mcp-tools)
 - [Agent Workflow](#agent-workflow)
-- [Quick Start](#quick-start)
   - [Installation](#installation)
   - [Running the Server](#running-the-server)
   - [Connecting from an MCP Client](#connecting-from-an-mcp-client)
@@ -28,9 +27,6 @@ Agent-ready MoSPI intelligence stack built on top of an MCP (Model Context Proto
 - [Contributing](#contributing)
 - [Resources](#resources)
 - [License](#license)
-- [About DIID](#diid)
-- [Acknowledgments](#acknowledgments)
-
 ---
 
 ## Overview
